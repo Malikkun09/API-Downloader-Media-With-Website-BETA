@@ -1,0 +1,4 @@
+{
+  "name": "Malik Dev Environment",
+  "postStartCommand": "bash auto_commit.sh"
+}
