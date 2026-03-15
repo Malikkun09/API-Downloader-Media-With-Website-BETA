@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "AUTO COMMIT SCRIPT STARTED"
+
 DATE=$(date +"%Y-%m-%d")
 TIME=$(date +"%H:%M:%S")
 
