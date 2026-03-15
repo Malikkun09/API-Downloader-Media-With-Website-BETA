@@ -1,4 +1,0 @@
-{
-  "name": "API Downloader Dev",
-  "postStartCommand": "bash auto_commit.sh"
-}
