@@ -358,7 +358,7 @@ Untuk success rate yang lebih tinggi, especialmente untuk platform yang **memerl
 ```javascript
 const axios = require('axios');
 
-class Masukkan NamaMediaDownloader {
+class MasukkanNamaMediaDownloader {
   constructor(apiKey, baseUrl = 'http://localhost:3000') {
     this.apiKey = apiKey;
     this.baseUrl = baseUrl;
@@ -423,7 +423,7 @@ class Masukkan NamaMediaDownloader {
 }
 
 // Usage
-const downloader = new Masukkan NamaMediaDownloader(
+const downloader = new MasukkanNamaMediaDownloader(
   'Masukkan Nama_PRO_'
 );
 
@@ -445,7 +445,7 @@ downloader.processWhatsAppMessage(message)
 ```python
 import requests
 
-class Masukkan NamaMediaDownloader:
+class MasukkanNamaMediaDownloader:
     def __init__(self, api_key, base_url='http://localhost:3000'):
         self.api_key = api_key
         self.base_url = base_url
@@ -497,7 +497,7 @@ class Masukkan NamaMediaDownloader:
         }
 
 # Usage
-downloader = Masukkan NamaMediaDownloader('Masukkan Nama_PRO_')
+downloader = MasukkanNamaMediaDownloader('Masukkan Nama_PRO_')
 message = "Lihat video ini https://youtu.be/dQw4w9WgXcQ"
 result = downloader.process_whatsapp_message(message)
 print(f"Downloaded: {result['total_files']} files")
