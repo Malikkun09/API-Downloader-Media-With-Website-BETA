@@ -8,6 +8,7 @@ const logger = pino({ level: process.env.LOG_LEVEL || 'info' });
 
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 2000;
+const DOWNLOAD_TIMEOUT_MS = parseInt(process.env.DOWNLOAD_TIMEOUT_MS, 10) || 300000;
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -65,7 +66,7 @@ function buildYtdlpArgs({ url, outputPath, quality = 'best', cookiePath = null, 
 
 function runYtdlp(args) {
   return new Promise((resolve, reject) => {
-    execFile('yt-dlp', args, { timeout: 120000 }, (error, stdout, stderr) => {
+    execFile('yt-dlp', args, { timeout: DOWNLOAD_TIMEOUT_MS }, (error, stdout, stderr) => {
       if (error) {
         const message = stderr || error.message;
         reject(new Error(`yt-dlp error: ${message}`));
@@ -98,7 +99,8 @@ function getMetadata(url, cookiePath = null) {
             description: data.description ? data.description.substring(0, 500) : null,
             thumbnail: data.thumbnail || null
           });
-        } catch {
+        } catch (parseErr) {
+          logger.warn({ error: parseErr.message }, 'Failed to parse yt-dlp metadata JSON');
           resolve(null);
         }
       }

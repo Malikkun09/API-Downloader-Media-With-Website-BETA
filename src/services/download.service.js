@@ -138,7 +138,8 @@ function findDownloadedFiles(dir, fileId) {
           type: getFileType(ext)
         };
       });
-  } catch {
+  } catch (err) {
+    logger.warn({ dir, fileId, error: err.message }, 'Error finding downloaded files');
     return [];
   }
 }

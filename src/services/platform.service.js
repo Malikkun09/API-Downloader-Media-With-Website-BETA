@@ -1,5 +1,7 @@
 'use strict';
 
+const cookieService = require('./cookie.service');
+
 const PLATFORMS = [
   {
     platform: 'youtube',
@@ -157,7 +159,6 @@ function detectPlatform(url) {
 }
 
 function getAllPlatforms() {
-  const cookieService = require('./cookie.service');
   return PLATFORMS.map(p => ({
     platform: p.platform,
     name: p.name,

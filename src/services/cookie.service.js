@@ -18,7 +18,8 @@ function hasCookie(cookieFile) {
   try {
     const cookiePath = getCookiePath(cookieFile);
     return fs.existsSync(cookiePath);
-  } catch {
+  } catch (err) {
+    logger.warn({ cookieFile, error: err.message }, 'Error checking cookie existence');
     return false;
   }
 }

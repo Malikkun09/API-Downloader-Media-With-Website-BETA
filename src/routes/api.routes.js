@@ -39,7 +39,7 @@ router.get('/platforms', authenticateApiKey, (_req, res) => {
   });
 });
 
-router.get('/files/:filename', (req, res) => {
+router.get('/files/:filename', authenticateApiKey, (req, res) => {
   const filename = path.basename(req.params.filename);
   const downloadsDir = path.resolve(process.env.DOWNLOADS_DIR || 'downloads');
   const filePath = path.join(downloadsDir, filename);

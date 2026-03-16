@@ -1,9 +1,10 @@
 'use strict';
 
 const VALID_API_KEYS = new Map();
+let keysLoaded = false;
 
 function loadApiKeys() {
-  VALID_API_KEYS.clear();
+  if (keysLoaded) return;
 
   const keys = {
     internal: process.env.API_KEY_INTERNAL,
@@ -19,6 +20,8 @@ function loadApiKeys() {
       VALID_API_KEYS.set(key, tier);
     }
   }
+
+  keysLoaded = true;
 }
 
 function authenticateApiKey(req, res, next) {
