@@ -1,4 +1,4 @@
-# Masukkan Nama Media Downloader API v1.0
+# Media Downloader API v1.0
 
 Professional REST API untuk download media (foto, video, audio) dari berbagai platform sosial dan musik. Didesain khusus untuk integrasi dengan bot WhatsApp dan deployment di production.
 
@@ -16,9 +16,8 @@ Professional REST API untuk download media (foto, video, audio) dari berbagai pl
 
 ## ⚙️ Panduan Setup (Wajib Dibaca)
 
-Repository ini menggunakan placeholder "Masukkan Nama" untuk data pribadi Anda. Ikuti langkah-langkah berikut untuk mengkonfigurasi:
 
-### 1. Setup Nama dan API Keys
+### 1. Setup API Keys
 
 Edit file `.env`:
 ```env
@@ -38,7 +37,6 @@ API_KEY_PRODUCTION=your_production_key
 
 ### 2. Setup Nama di Kode
 
-Ganti semua placeholder "Masukkan Nama" dengan nama Anda:
 - `package.json` - field "author"
 - `src/server.js` - nama server di banner
 
@@ -142,12 +140,12 @@ API menggunakan sistem multi-tier API key:
 
 | Type | Key Prefix | Usage |
 |------|------------|-------|
-| Internal | Masukkan Nama_INT_ | Internal development |
-| Public | Masukkan Nama_PUB_ | Public access |
-| Development | Masukkan Nama_DEV_ | Testing environment |
-| Production | Masukkan Nama_PRO_ | Production use |
+| Internal | INT_ | Internal development |
+| Public | PUB_ | Public access |
+| Development | DEV_ | Testing environment |
+| Production | PRO_ | Production use |
 
-**Production API Key**: `Masukkan Nama_PRO_`
+**Production API Key**: `PRO_`
 
 Gunakan header: `x-api-key: <API_KEY>`
 
@@ -159,7 +157,7 @@ Gunakan header: `x-api-key: <API_KEY>`
 
 **Headers**:
 ```
-x-api-key: Masukkan Nama_PRO_
+x-api-key: PRO_
 Content-Type: application/json
 ```
 
@@ -177,7 +175,7 @@ Content-Type: application/json
 **cURL Example**:
 ```bash
 curl -X POST http://localhost:3000/api/download \
-  -H "x-api-key: Masukkan Nama_PRO_" \
+  -H "x-api-key: PRO_" \
   -H "Content-Type: application/json" \
   -d '{
     "text": "Lihat video ini https://youtu.be/dQw4w9WgXcQ dan foto IG https://instagram.com/p/xyz123"
@@ -266,7 +264,7 @@ curl -X POST http://localhost:3000/api/download \
 
 **Headers**:
 ```
-x-api-key: Masukkan Nama_PRO_
+x-api-key: PRO_
 ```
 
 **Response**:
@@ -296,7 +294,7 @@ x-api-key: Masukkan Nama_PRO_
 ```json
 {
   "status": true,
-  "message": "Masukkan Nama Media Downloader API is running",
+  "message": "Media Downloader API is running",
   "timestamp": "2024-01-01T12:00:00.000Z",
   "version": "1.0.0",
   "endpoints": {
@@ -358,7 +356,7 @@ Untuk success rate yang lebih tinggi, especialmente untuk platform yang **memerl
 ```javascript
 const axios = require('axios');
 
-class Masukkan NamaMediaDownloader {
+class MediaDownloader {
   constructor(apiKey, baseUrl = 'http://localhost:3000') {
     this.apiKey = apiKey;
     this.baseUrl = baseUrl;
@@ -423,8 +421,8 @@ class Masukkan NamaMediaDownloader {
 }
 
 // Usage
-const downloader = new Masukkan NamaMediaDownloader(
-  'Masukkan Nama_PRO_'
+const downloader = new MediaDownloader(
+  'PRO_'
 );
 
 const message = "Lihat video ini https://youtu.be/dQw4w9WgXcQ";
@@ -445,7 +443,7 @@ downloader.processWhatsAppMessage(message)
 ```python
 import requests
 
-class Masukkan NamaMediaDownloader:
+class MediaDownloader:
     def __init__(self, api_key, base_url='http://localhost:3000'):
         self.api_key = api_key
         self.base_url = base_url
@@ -497,7 +495,7 @@ class Masukkan NamaMediaDownloader:
         }
 
 # Usage
-downloader = Masukkan NamaMediaDownloader('Masukkan Nama_PRO_')
+downloader = MediaDownloader('PRO_')
 message = "Lihat video ini https://youtu.be/dQw4w9WgXcQ"
 result = downloader.process_whatsapp_message(message)
 print(f"Downloaded: {result['total_files']} files")
@@ -725,4 +723,4 @@ MIT License - Lihat file LICENSE untuk detail.
 
 ---
 
-**Masukkan Nama Media Downloader API v2.0** - Professional Grade Media Downloader untuk WhatsApp Bot
+**Media Downloader API v2.0** - Professional Grade Media Downloader untuk WhatsApp Bot
