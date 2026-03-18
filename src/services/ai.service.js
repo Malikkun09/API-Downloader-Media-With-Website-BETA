@@ -4,6 +4,7 @@ export const aiService = {
   summarize: async (text, maxLength = 200) => {
     try {
       if (typeof text !== 'string') {
+        logger.warn({ inputType: typeof text }, 'AI summarize received non-string input');
         return '';
       }
 
@@ -38,6 +39,14 @@ export const aiService = {
     try {
       const tags = new Set();
       
+      if (typeof title !== 'string') {
+        logger.warn({ titleType: typeof title }, 'AI generateTags received non-string title');
+      }
+
+      if (description !== undefined && typeof description !== 'string') {
+        logger.warn({ descriptionType: typeof description }, 'AI generateTags received non-string description');
+      }
+
       if (typeof title === 'string' && title) {
         const titleWords = title
           .toLowerCase()
@@ -71,6 +80,7 @@ export const aiService = {
   extractKeywords: async (text) => {
     try {
       if (typeof text !== 'string') {
+        logger.warn({ inputType: typeof text }, 'AI extractKeywords received non-string input');
         return [];
       }
 
