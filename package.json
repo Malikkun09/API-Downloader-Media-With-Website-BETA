@@ -1,0 +1,44 @@
+{
+  "name": "media-downloader-api",
+  "version": "1.0.0",
+  "description": "Professional REST API untuk download media dari berbagai platform sosial dan musik",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "clean": "node src/utils/cleanup.util.js"
+  },
+  "keywords": [
+    "api",
+    "downloader",
+    "media",
+    "youtube",
+    "instagram",
+    "tiktok",
+    "spotify"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-validator": "^7.0.1",
+    "express-rate-limit": "^7.1.5",
+    "axios": "^1.6.2",
+    "uuid": "^9.0.1",
+    "fs-extra": "^11.2.0",
+    "mime-types": "^2.1.35",
+    "pino": "^8.17.2",
+    "pino-pretty": "^10.3.1",
+    "yt-dlp-exec": "^1.0.2",
+    "yt-dlp-wrap": "^2.3.12",
+    "play-dl": "^1.9.7",
+    "dotenv": "^16.3.1",
+    "node-schedule": "^2.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
