@@ -3,6 +3,10 @@ import { logger } from './logger.service.js';
 export const aiService = {
   summarize: async (text, maxLength = 200) => {
     try {
+      if (typeof text !== 'string') {
+        return '';
+      }
+
       if (!text || text.length < 10) {
         return text;
       }
@@ -34,7 +38,7 @@ export const aiService = {
     try {
       const tags = new Set();
       
-      if (title) {
+      if (typeof title === 'string' && title) {
         const titleWords = title
           .toLowerCase()
           .replace(/[^\w\s]/g, '')
@@ -44,7 +48,7 @@ export const aiService = {
         titleWords.forEach(w => tags.add(w));
       }
       
-      if (description) {
+      if (typeof description === 'string' && description) {
         const descWords = description
           .toLowerCase()
           .replace(/[^\w\s]/g, '')
@@ -66,6 +70,10 @@ export const aiService = {
   
   extractKeywords: async (text) => {
     try {
+      if (typeof text !== 'string') {
+        return [];
+      }
+
       const words = text
         .toLowerCase()
         .replace(/[^\w\s]/g, '')
