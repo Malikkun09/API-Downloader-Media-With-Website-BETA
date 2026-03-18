@@ -129,10 +129,28 @@ yt-dlp --version
 ### Jalankan Server
 
 ```bash
+# Untuk menjalankan Backend (API)
 npm start
 ```
 
-Server akan berjalan di `http://localhost:3000`
+Server API akan berjalan di `http://localhost:3000`
+
+### Menjalankan Frontend (Website)
+
+Proyek ini juga sudah dilengkapi dengan UI web (React + Vite) di dalam folder `website/`. Untuk mengaksesnya, jalankan dari terminal terpisah:
+
+```bash
+# Pindah ke folder website
+cd website
+
+# Install dependencies untuk website
+npm install
+
+# Jalankan server frontend
+npm run dev
+```
+
+Website akan berjalan di `http://localhost:5173` dan secara otomatis terhubung (di-*proxy*) ke backend API port `3000`.
 
 ## 🔑 API Keys
 
